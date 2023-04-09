@@ -18,7 +18,7 @@ exports.submitOne = async (req, res) => {
 
         if (req.body.answer == quiz.key) {
             res.status(200).json({
-                "message": "kamu jenius ya"
+                "message": "benar"
             })
         } else {
             res.status(200).json({

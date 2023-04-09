@@ -5,6 +5,7 @@ const port = 5000;
 const quizRoute = require('./router/quiz')
 const jobsheetRoute = require('./router/jobsheet')
 const materialRoute = require ('./router/materi')
+const musicalRoute = require ('./router/music')
 
 app.use(cors());
 app.use(express.json());
@@ -21,5 +22,7 @@ app.get('/', (req, res) => {
 app.use('/api/quizzes', quizRoute)
 app.use('/api/jobsheet', jobsheetRoute)
 app.use('/api/materi', materialRoute)
+app.use('/api/music', musicalRoute)
+
 
 app.listen(port, () => console.log('App listening on port http://localhost:${port}!'));

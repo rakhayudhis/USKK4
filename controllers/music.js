@@ -1,13 +1,13 @@
 const db = require("../models")
-const Materi = db.material;
+const Music = db.musical;
 
 
 // Menambahkan Materi
 exports.create = async(req, res) => {
     try {
-        const data = await Materi.create(req.body)
+        const data = await Music.create(req.body)
         res.json({
-            message: "Materi telah dibuat.",
+            message: "Music telah ditambahkan.",
             data: data,
         })
     } catch (error) {
@@ -25,10 +25,10 @@ exports.create = async(req, res) => {
 // Menampilkan semua data Materi
 exports.getAll = async(req, res) => {
     try {
-        const quizzes = await Materi.findAll()
+        const music = await Music.findAll()
         res.json({
-            message: "Materi berhasil ditampilkan",
-            data: quizzes,
+            message: "Music berhasil ditampilkan",
+            data: music,
         });
     } catch (error) {
         res.status(500).json({
@@ -42,13 +42,13 @@ exports.getAll = async(req, res) => {
 exports.update = async (req, res)=> {
     const id = req.params.id
     try {
-        const materi = await Materi.findByPk(id, { rejectOnEmpty: true})
-        materi.update(req.body, {
+        const music = await Music.findByPk(id, { rejectOnEmpty: true})
+        music.update(req.body, {
             where: {id}
         })
         res.json({
-            message: "Materi berhasil diubah",
-            data: Materi,
+            message: "Music berhasil diubah",
+            data: music,
         });
     } catch (error) {
         res.status(500).json({
@@ -61,12 +61,12 @@ exports.update = async (req, res)=> {
 exports.delete = async (req, res) => {
     const id = req.params.id
     try {
-        const materi = await Materi.findByPk(id, {rejectOnEmpty: true})
+        const music = await Music.findByPk(id, {rejectOnEmpty: true})
 
-        materi.destroy()
+        music.destroy()
 
         res.json({
-            message: "Materi berhasil dihapus"
+            message: "Music berhasil dihapus"
         });
     } catch (error) {
         res.status(500).json({
@@ -80,10 +80,10 @@ exports.delete = async (req, res) => {
 exports.findOne = async (req, res) => {
     const id = req.params.id
     try {
-        const materi = await Materi.findByPk(id, {rejectOnEmpty: true})
+        const music = await Music.findByPk(id, {rejectOnEmpty: true})
         res.json({
-            message: `Materi berhasil di ambil dengan id=${id}.`,
-            data: materi,
+            message: `Music berhasil di ambil dengan id=${id}.`,
+            data: music,
         });
     } catch (error) {
         res.status(500).json({

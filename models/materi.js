@@ -9,9 +9,6 @@ module.exports = (sequlize, Sequlize) => {
         materi: {
             type: Sequlize.TEXT,
         },
-        lirik: {
-            type: Sequlize.TEXT,
-        },
     });
     return Materi;
 }
